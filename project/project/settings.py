@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+# Import Library
 from pathlib import Path
 import os, environ
 
@@ -33,8 +33,8 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 # DEBUG=True
 
-# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-ALLOWED_HOSTS = env('HOSTS').split(',')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+# ALLOWED_HOSTS = env('HOSTS').split(',')
 
 
 # Application definition
@@ -95,6 +95,7 @@ DATABASES = {
         'PORT': env('DB_PORT')
     }
 }
+
 
 
 # Password validation
