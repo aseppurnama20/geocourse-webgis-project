@@ -9,7 +9,8 @@ class Facility(models.Model):
         ('government', 'Government'),
         ('public', 'Public Facility'),
         ('park', 'Park'),
-        ('restaurant', 'Restaurant')
+        ('restaurant', 'Restaurant'),
+        ('housing_area', 'Housing Area')
     ]
 
     STATUS_CHOICES = [
