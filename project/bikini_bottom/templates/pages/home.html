@@ -3,6 +3,7 @@
 {% block title %}
   Home
 {% endblock %}
+
 {% block head %}
 <!-- LEAFLET -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -14,8 +15,10 @@
   }
 </style>
 {% endblock %}
+
 {% block body %}
  <h1>Testing Inheritence HTML</h1>
+ <a href="{% url 'facility_form_add' %}" class="btn btn-primary">Add Fasilitas</a>
  <div id="peta">TAMPILAN PETA</div>
 
  <script>
@@ -30,7 +33,20 @@
   .then(response => response.json())
   .then(function(json){
     console.log(json)
-    L.geoJSON(json).addTo(peta)
+    L.geoJSON(json, {
+      onEachFeature: function(feature, Layer){
+        Layer.bindPopup(feature.properties.name)
+        Layer.bindPopup(
+          `
+          <h5>${feature.properties.name}</h5>
+          <ul>
+            <li>${feature.properties.price}</li>
+            <li>${feature.properties.price_unit}</li>
+          </ul>
+          `
+        )
+      }
+    }).addTo(peta)
   })
  </script>
 {% endblock %}
