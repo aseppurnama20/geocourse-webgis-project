@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block body %}
-  <h1>Menambahkan Fasilitas Baru</h1>
+  <h1>Add New Facility</h1>
   <form method="POST", enctype="multipart/form-data">
     {% csrf_token %}
     {{form|crispy}}

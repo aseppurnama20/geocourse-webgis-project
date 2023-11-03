@@ -1,7 +1,21 @@
 <nav class ="navbar navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="/media/base/spongebob_logo.jpeg", alt="Main Logo", height="50px">
-        </a>
+    <div class="container-fluid">
+        <!-- Sisi Kana -->
+        <div>
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="/media/base/spongebob_logo.png", alt="Main Logo", height="50px">
+            </a>
+        </div>
+        <!-- Sisi Tengah -->
+        <div>
+            <a class="btn">Booking Facility</a>
+            <a href="{% url 'facility_list' %}" class="btn">Propose/Manage Facility</a>
+            <a class="btn">Public Infrastructure</a>
+            <a class="btn">About</a>
+        </div>
+        <!-- Sisi Kiri -->
+        <div>
+            Hello World
+        </div>
     </div>
 </nav>
