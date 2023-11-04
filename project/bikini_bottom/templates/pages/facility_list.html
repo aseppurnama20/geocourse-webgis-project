@@ -21,14 +21,15 @@
       <th>Price Unit</th>
       <th>Photo</th>
       <th>Open/Close</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     {% for item in data %}
     <tr>
-      <th>{{item.name}}</th>
-      <th>{{item.types}}</th>
-      <th>
+      <td>{{item.name}}</td>
+      <td>{{item.types}}</td>
+      <td>
         {% if item.status == 'completed' %}
         <span class="badge bg-success">{{item.status}}</span>
         {% elif item.status == 'under_review' %}
@@ -36,13 +37,17 @@
         {% elif item.status == 'proposed' %}
         <span class="badge bg-primary">{{item.status}}</span>
         {% endif %}
-      </th>
-      <th>{{item.price}}</th>
-      <th>{{item.price_unit}}</th>
-      <th><img src="{{item.photo.url}}" alt="" height="100px"></th>
-      <th>
+      </td>
+      <td>{{item.price}}</td>
+      <td>{{item.price_unit}}</td>
+      <td><img src="{{item.photo.url}}" alt="" height="100px"></td>
+      <td>
         {% if item.open %} ✅ {% else %} ⛔ {% endif %}
-      </th>
+      </td>
+      <td>
+        <a href="{% url 'facility_form_update' item.id %}" class="btn btn-sm btn-success">Update</a>
+        <a href="{% url 'facility_form_delete' item.id %}" class="btn btn-sm btn-danger">Delete</a>
+      </td>
     </tr>
     {% endfor %}
   </tbody>
